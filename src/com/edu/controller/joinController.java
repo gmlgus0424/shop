@@ -12,12 +12,12 @@ import javax.servlet.http.HttpSession;
 
 import com.edu.dao.UserDao;
 import com.edu.dto.UserDto;
-@WebServlet("/join.do")
+
 public class joinController extends HttpServlet{
 @Override
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	// TODO Auto-generated method stub
-	RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/signUp.jsp");
+	RequestDispatcher rd = req.getRequestDispatcher("/signUp.jsp");
 	rd.forward(req, resp);
 }
 @Override
@@ -42,11 +42,11 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 		req.setAttribute("joinResult", joinResult);
 		HttpSession session = req.getSession();
 		session.setAttribute("sessionID", id);
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/index.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
 		rd.forward(req, resp);
 	} else {
 		req.setAttribute("joinResult", 0);
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/signUp.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/signUp.jsp");
 		rd.forward(req, resp);
 	}
 }

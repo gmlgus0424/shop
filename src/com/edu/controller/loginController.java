@@ -11,37 +11,40 @@ import javax.servlet.http.HttpSession;
 
 import com.edu.dao.UserDao;
 
-public class loginController extends HttpServlet{
-@Override
-protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	// TODO Auto-generated method stub
-	RequestDispatcher rd=req.getRequestDispatcher("/WebContent/login.jsp");
-	rd.forward(req, resp);
-}
-@Override
+public class loginController extends HttpServlet {
+	/**
+	 * 
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		RequestDispatcher rd = req.getRequestDispatcher("/login2.jsp");
+		rd.forward(req, resp);		
+	}
+
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	req.setCharacterEncoding("UTF-8");
-	String id = req.getParameter("id");
-	String pwd = req.getParameter("pwd");
-	
-	UserDao mDao = UserDao.getInstance();
-	int loginResult = mDao.login(id, pwd);
-	
-	if (loginResult == 1) {
-		req.setAttribute("loginResult", loginResult);
-		HttpSession session = req.getSession();
-		session.setAttribute("sessionID", id);
-		RequestDispatcher rd = req.getRequestDispatcher("/WebContent/index.jsp");
-		rd.forward(req, resp);
-	} else {
-		req.setAttribute("loginResult", loginResult);
-		RequestDispatcher rd = req.getRequestDispatcher("/WebContent/login.jsp");
-		rd.forward(req, resp);
-	}
-	
-}
+		req.setCharacterEncoding("UTF-8");
+		String id = req.getParameter("id");
+		String pwd = req.getParameter("pwd");
 
-}
+		UserDao mDao = UserDao.getInstance();
+		int loginResult = mDao.login(id, pwd);
+
+		if (loginResult == 1) {
+			req.setAttribute("loginResult", loginResult);
+			HttpSession session = req.getSession();
+			session.setAttribute("sessionID", id);
+			RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
+			rd.forward(req, resp);
+		} else {
+			req.setAttribute("loginResult", loginResult);
+			RequestDispatcher rd = req.getRequestDispatcher("/login.jsp");
+			rd.forward(req, resp);
+		}
 	}
 }

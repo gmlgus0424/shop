@@ -1,0 +1,65 @@
+@charset "UTF-8";
+ 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+		a:link {color:black; text-decoration: none;}
+	
+		li{
+			list-style-type: none;
+			color:gray;
+		}
+
+		header { 
+			height:250px;
+			
+		 }
+		 #top{
+		 	height: 60px;
+		 	background-color: #00BFFF;
+
+
+
+		 }
+		 #top li{
+		 	display:inline;
+		 	font-size: 15px;
+		 	margin: 5px;
+		 	
+
+		 }
+		 #mainmenu{
+		 	height:60px;
+		 	border-top: solid 1px #e2e2e2;
+		 	border-bottom: solid 1px #e2e2e2;
+		 	padding: 15px 15px;
+
+
+		 	}
+		 	
+		 #mainmenu li{
+		 	display:inline;
+		 	text-align: center;
+		 	font-family: 'Montserrat', sans-serif;
+		 	font-size:20px;
+		 	text-align: justify;
+		
+         	margin-left: 35px;
+
+         	}
+         	footer{
+			width:1500px;
+			border-top:solid 1px #dddddd;
+
+			
+		}
+		.accent{
+			font-size: 130%;
+			font-weight: 150;
+
+		}
+
+		.footers{
+			float:left;
+			margin:30px 0 0 30px;
+		}
+
+		
